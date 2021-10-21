@@ -4,6 +4,7 @@ function MediaPlayer(config){
   this._initPlugins();
 }
 
+/**Esta funcion inicializa el metodo run del video al iniciar */
 MediaPlayer.prototype._initPlugins = function(){
     this.plugins.forEach(plugin => {
       plugin.run(this)
