@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre consola</em></p>
+
+    <h1>
+      <code>this</code> se refiere a un objeto. Este objeto es el que
+      actualmente esta ejecutando un pedazo de codigo
+    </h1>
+
+    <script>
+      //contexto global
+      console.log(`this : ${this}`);
+
+      //this en el scope de una funcion
+      function whoIsThis() {
+        return this;
+      }
+      console.log(`this:  ${whoIsThis()}`);
+      //este es un valor que retorna por default
+      //this : [object Window]
+
+      /**strict mode cirve para evitar errores en la parte de produccion 
+        y que nos salgan en la parte de desarrollo*/
+      function whoIsThisStrict() {
+        "use strict";
+        return this;
+      }
+      console.log(`thisStrict:  ${whoIsThisStrict()}`);
+      //este es un valor que retorna por default
+      //thisStrict:  undefined
+
+      //THIS EN EL CONTEXTO DE UN OBJETO
+      const person = {
+        name: "Gabriel",
+        saludar: function () {
+          console.log(`Hola soy ${this.name}`);
+        },
+      };
+      person.saludar();
+
+      //this cuando sacamos a una funcion de un objeto
+      const accion = person.saludar;
+      accion();
+
+      //this en el contexto de una "clase"
+      //las clases en javascript no existen, almenos no son igual que en javascript
+      function Person(name) {
+        this.name = name;
+      }
+
+      Person.prototype.saludar = function () {
+        console.log(`Me llamo ${this.name}`);
+      };
+      //creamos la instancia del objeto
+      const angela = new Person("Angela");
+      angela.saludar();
+
+      /**
+        No se puede asignar un valor a this directamente y este depende de en que scope nos encontramos:
+
+Cuando llamamos a this en el Global Scope o Function Scope, se hace referencia al objeto window. A excepción de cuando estamos en strict mode que nos regresará undefined.
+Cuando llamamos a this desde una función que está contenida en un objeto, this se hace referencia a ese objeto.
+Cuando llamamos a this desde una “clase”, se hace referencia a la instancia generada por el constructor.
+        **/
+    </script>
+  </body>
+</html>

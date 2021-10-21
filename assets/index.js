@@ -10,7 +10,7 @@ const video = document.querySelector('video')
 /**Este metodo lo que hace es enviar el elemento y el plugin para ser inicializados
  * en Mediaplayer y el video inicie automaticamente
  */
-const player = new MediaPlayer({el: video,plugins: [new AutoPlay()]});
+const player = new MediaPlayer({el: video,plugins: [/**new AutoPlay()*/]});
 
 /** Enlace al botton de play*/
 const button = document.querySelector('#playButton')
