@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>SomeObject.prototype es un objeto donde definimos el prototipo 
+        de las instancias de SomeObject. Es decir las instancias de SomeObject
+        van a "heredar" de SomeObject.prototype
+
+        SomeObject.[[prototype]] es el prototipo de SomeObject, es decir
+        , someObject hereda de someObject.prototype
+    </em></p>
+    
+<script> 
+function Hero(name){
+    this.name = name;
+}    
+Hero.prototype.saludar = function(){
+    console.log(`Hola, soy ${this.name}`)
+}
+
+const zelda = new Hero('Zelda');
+
+//propiedades de la instancia
+console.log(`name: ${zelda.name}`)
+//propiedades de la clase
+console.log(`Saludar: ${zelda.saludar}`)
+//propiedades heredadas ej: toString 
+console.log(`toString: ${zelda.toString}`)
+/** hasOwnProperty cirve para inspeccionar si algo es directamente del objeto 
+o por herencia*/
+console.log(`hasOwnProperty: ${zelda.hasOwnProperty("saludar")}`)
+
+</script>
+
+</body>
+</html>

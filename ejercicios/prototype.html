@@ -121,10 +121,15 @@
         Hero.prototype.saludar = function () {
             console.log(`New: ${this.name}`)
         }
+        Hero.prototype.saludar2 = function () {
+            console.log(`New: ${this.name}`)
+        }
+
         const zelda = new Hero('Zelda');
         zelda.saludar();
         const link = new Hero('Link');
         link.saludar();
+        link.saludar2();
 
     </script>
 
